@@ -1,7 +1,8 @@
-<template>
+<template >
+  
   <v-container
     class="d-flex justify-center align-center"
-    style="width: 100%; height: 90vh"
+    style="width: 100%; height: 90vh;"
   >
     <v-row align="center" justify="center">
       <v-col cols="12" sm="10">
@@ -11,9 +12,13 @@
               <v-row>
                 <v-col cols="12" sm="6" md="6" lg="6">
                   <v-card-text class="mt-16">
-                    <h1 class="text-center " >Iniciar Sesion</h1>
+                    <h1 class="text-center">Iniciar Sesion</h1>
 
-                    <v-row align="center" justify="center" class="mt-n8 mt-sm-n5 mt-md-n5 mt-lg-n5">
+                    <v-row
+                      align="center"
+                      justify="center"
+                      class="mt-n8 mt-sm-n5 mt-md-n5 mt-lg-n5"
+                    >
                       <v-col cols="12" sm="11" md="10" lg="10">
                         <v-text-field
                           label="Correo"
@@ -24,6 +29,7 @@
                           class="mt-16"
                         />
                         <v-text-field
+                        class="mb-n5"
                           label="Contraseña"
                           outlined
                           dense
@@ -31,11 +37,11 @@
                           autocomplete="false"
                           type="password"
                         />
-                        <v-row class="mt-n6">
+                        <v-row  >
                           <v-col cols="12" class="text-end">
-                            <span class="caption blue--text"
-                              >Olvidaste tu contraseña?</span
-                            >
+                            <a class="caption" @click="step = 3"> 
+                              Olvidaste tu contraseña?
+                          </a>
                           </v-col>
                         </v-row>
                         <v-row>
@@ -44,7 +50,7 @@
                           >
                         </v-row>
                         <div
-                        style="color:#ccc"
+                          style="color: #ccc"
                           class="mt-3 align-center justify-center d-flex d-sm-none d-md-none d-lg-none"
                         >
                           <h4 class="">No tienes cuenta?</h4>
@@ -93,7 +99,6 @@
                 <v-col cols="12" sm="6" md="6" lg="6">
                   <v-card-text class="mt-12">
                     <h1 class="text-center mt-n4">Registrarse</h1>
-                    
 
                     <v-row align="center" justify="center">
                       <v-col cols="12" sm="10">
@@ -150,7 +155,7 @@
                         </v-row>
                         <v-btn color="blue" dark block>Registrarse</v-btn>
                         <div
-                        style="color:#ccc"
+                          style="color: #ccc"
                           class="mt-3 align-center justify-center d-flex d-sm-none d-md-none d-lg-none"
                         >
                           <h4 class="">Ya tienes cuenta?</h4>
@@ -165,11 +170,68 @@
                 </v-col>
               </v-row>
             </v-window-item>
+            <v-window-item :value="3">
+              <v-row>
+                <v-col cols="6" class="d-none d-sm-flex d-md-flex d-lg-flex">
+                  <v-col cols="12" class="blue ">
+                    <div style="text-align: center; padding: 180px 0">
+                      <v-card-text class="white--text">
+                        <h2 class="text-center">
+                          Ya recuperaste tu contraseña?
+                        </h2>
+                      </v-card-text>
+                      <div class="text-center">
+                        <v-btn outlined dark @click="step = 1"
+                          >Inicia Sesion</v-btn
+                        >
+                      </div>
+                    </div>
+                  </v-col>
+                </v-col>
+
+                <v-col cols="12" sm="6" md="6" lg="6" class=" d-flex align-center justify-center">
+                  <v-card-text class="mt-5 mt-sm-n5 mt-md-n5 mt-lg-n5">
+                
+                      <h1 class="text-center mt-n4">Recuperar Contraseña</h1>
+
+                      <v-row class="mt-2">
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Correo electronico"
+                            outlined
+                            dense
+                            color="blue"
+                            autocomplete="false"
+                            class="mt-4"
+                          />
+                        </v-col>
+                      </v-row>
+                      <div class="text-center">
+                        <v-btn color="blue" block dark @click="step == 1"
+                          >Enviar</v-btn
+                        >
+                      </div>
+                      <div
+                          style="color: #ccc"
+                          class="mt-3 align-center justify-center d-flex d-sm-none d-md-none d-lg-none"
+                        >
+                          <h4 class="">Recuperate tu contraseña?</h4>
+
+                          <h4 @click="step = 1" class="blue--text ml-1">
+                            Inicia Sesion
+                          </h4>
+                        </div>
+                 
+                  </v-card-text>
+                </v-col>
+              </v-row>
+            </v-window-item>
           </v-window>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
+
 </template>
 
 <script>
